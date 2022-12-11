@@ -2,8 +2,9 @@
 Traffic road simulator for intersection roads
 2022-12-12
 
-To run without GUI: MR_manual_Run_Traffic_Sim_v05.m
-To run with a GUI screen: MR_Gui_Traffic_Simulator.m
+> To run without GUI: MR_manual_Run_Traffic_Sim_v05.m
+
+> To run with a GUI screen: MR_Gui_Traffic_Simulator.m
 
 This simulator save informations about run, in excel file MR_Traffic.xlsx
 
