@@ -23,5 +23,5 @@ g) Can configure how long time the system executes;
 
 h) Gives the number of cars that passed on each road, time to process, and actual data;
 
-i) Can acelerate the creation of randomize cars
+i)Can speed up random car creation;
 
