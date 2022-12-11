@@ -25,6 +25,8 @@ This simulator save informations about run, in excel file MR_Traffic.xlsx
     h) Gives the number of cars that passed on each road, time to process, and actual data;
 
     i) Can speed up random car creation;
+    
+    j) Count the wait time for ech road;
 
 ![image](https://github.com/MRobalinho/Traffic_simulator/blob/main/Images/Screenshot_2.png)
 
