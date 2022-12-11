@@ -25,3 +25,4 @@ h) Gives the number of cars that passed on each road, time to process, and actua
 
 i)Can speed up random car creation;
 
+![image](https://github.com/MRobalinho/Traffic_simulator/blob/main/Images/Screenshot_1.png)
