@@ -1,4 +1,4 @@
-# Traffic_simulator
+# MATLAB Traffic simulator
 Traffic road simulator for intersection roads
 2022-12-12
 
