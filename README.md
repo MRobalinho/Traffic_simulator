@@ -27,3 +27,5 @@ This simulator save informations about run, in excel file MR_Traffic.xlsx
     i) Can speed up random car creation;
 
 ![image](https://github.com/MRobalinho/Traffic_simulator/blob/main/Images/Screenshot_2.png)
+
+![image](https://github.com/MRobalinho/Traffic_simulator/blob/main/Images/untitled.jpg)
