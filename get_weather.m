@@ -13,7 +13,7 @@ function [oLocal, oWeather, oTemperature, oPressure, oHumidity, oWind , oVisibil
 % Need obtain the KEY on: https://openweathermap.org/current
 % https://openweathermap.org/current#min
 
-key = '8c1e46b9e66b58d18d376fbdcc991f2a';  % My personal key
+key = 'My_key';  % My personal key
 options = weboptions('ContentType','json');
 
 url = ['https://api.openweathermap.org/data/2.5/weather?q=', iLocal,'&APPID=',key, '&units=metric'];
