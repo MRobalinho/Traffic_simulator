@@ -21,12 +21,16 @@ This simulator save informations about run, in excel file MR_Traffic.xlsx
     f) Can confifure how many cars can be in the system;
 
     g) Can configure how long time the system executes;
-
-    h) Gives the number of cars that passed on each road, time to process, and actual data;
-
-    i) Can speed up random car creation;
     
-    j) Count the wait time for ech road;
+    h) Can configure the weather and the system adapt speed in the context;
+    
+    i) Can configure if use street lights or not
+
+    j) Gives the number of cars that passed on each road, time to process, and actual data;
+
+    k) Can speed up random car creation;
+    
+    l) Count the wait time for ech road;
 
 ![image](https://github.com/MRobalinho/Traffic_simulator/blob/main/Images/Screenshot_2.png)
 
