@@ -1,4 +1,14 @@
+%%------------------------------------------------------------
+% MATLAB Traffic Simulator
+% Coimbra University
+% Manuel Robalinho
+% Contact: manuel.robalinho@gmail.com
+% Year: 2022
+% References:
+%  https://www.mathworks.com/help/matlab/ref/uigridlayout.html
+%--------------------------------------------------------------
 function [var_min, var_sec] = current_clock()
+
 %UNTITLED5 Summary of this function goes here
 % makes the current time in minutes and seconds
 % as integer variables

@@ -1,4 +1,13 @@
-%% Verify security zone for cars with priority
+%%------------------------------------------------------------
+% MATLAB Traffic Simulator
+% Coimbra University
+% Manuel Robalinho
+% Contact: manuel.robalinho@gmail.com
+% Year: 2022
+% References:
+%  https://www.mathworks.com/help/matlab/ref/uigridlayout.html
+%--------------------------------------------------------------
+% Verify security zone for cars with priority
 function [cars_in_intersection, hroad_coordinates] = verify_cross_road(i_car, cars, process_cars, hroad_coordinates)
 % ---
 % Track 1  Road horizontal top
