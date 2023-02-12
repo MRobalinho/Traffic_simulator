@@ -1,5 +1,14 @@
-%% Change car direction
-function  [hroad, cars, new_road, x_turn ] = change_car_direction( hroad_coordinates, hroad, color_road, i_car, cars, turn_right_pos, turn_left_pos, hight_matrix, color_control, color_central, color_vehicle, color_vehicle_turn)
+%%------------------------------------------------------------
+% MATLAB Traffic Simulator
+% Coimbra University
+% Manuel Robalinho
+% Contact: manuel.robalinho@gmail.com
+% Year: 2022
+% References:
+%  https://www.mathworks.com/help/matlab/ref/uigridlayout.html
+%--------------------------------------------------------------
+% Change car direction
+function  [hroad, cars, new_road, x_turn ] = change_car_direction( hroad_coordinates, hroad, color_road, i_car, cars, turn_right_pos, turn_left_pos, hight_matrix, color_control, color_central, color_vehicle, color_vehicle_turn_r, color_vehicle_turn_l)
 
 % cars( i_car, 4 ) <> 1 (1 go ahead; 2 right; 3 left)
 old_road     = cars(i_car, 2);  % Road
@@ -14,10 +23,13 @@ x_turn = 0; % turn or not turn
 %-----
 if save_direction == 1
     x_car_color = color_vehicle;   % Go ahead
-else
-    x_car_color = color_vehicle_turn;  % turn direction
 end
-
+if save_direction == 2
+    x_car_color = color_vehicle_turn_r;  % turn direction right
+end
+if save_direction == 3
+    x_car_color = color_vehicle_turn_l;  % turn direction left
+end
 if car_turn_to == 2  
    x_pos_turn =  turn_right_pos;  % Go right
 else

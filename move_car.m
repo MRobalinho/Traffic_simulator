@@ -1,6 +1,15 @@
-%% --Move car
+%%------------------------------------------------------------
+% MATLAB Traffic Simulator
+% Coimbra University
+% Manuel Robalinho
+% Contact: manuel.robalinho@gmail.com
+% Year: 2022
+% References:
+%  https://www.mathworks.com/help/matlab/ref/uigridlayout.html
+%--------------------------------------------------------------
+% --Move car
 % ---------------------------------------------------------------
-function [ status_wait, hroad, cars ] = move_car(hight_matrix, hroad, hroad_coordinates, i_car, cars, color_road, color_vehicle, color_vehicle_turn )
+function [ status_wait, hroad, cars ] = move_car(hight_matrix, hroad, hroad_coordinates, i_car, cars, color_road, color_vehicle, color_vehicle_turn_r, color_vehicle_turn_l )
 
 % ---
 % Informations about cars - 6 informations
@@ -29,10 +38,13 @@ new_y   = 0;
 %-----
 if save_direction == 1
     x_car_color = color_vehicle;   % Go ahead
-else
-    x_car_color = color_vehicle_turn;  % turn direction
 end
-
+if save_direction == 2
+    x_car_color = color_vehicle_turn_r;  % turn direction right
+end
+if save_direction == 3
+    x_car_color = color_vehicle_turn_l;  % turn direction left
+end
 % update new position of vehicle in horizontal street top
 if this_road == 1  % Horizontal Top
     road_position = hroad_coordinates(this_road, 2);       % Y Fixed
@@ -133,6 +145,7 @@ if ( this_road == 1 || this_road == 2 ) && new_x > 0
         status_wait                    = 0;    % not wait
     else
         status_wait = 1;    % wait
+        cars(i_car,9) = cars(i_car,9) + 1; % count numero of wait
     end
     if pos_next <= 1 || pos_next   >= hight_matrix
         hroad(old_y,  1)            = color_road;
@@ -149,6 +162,7 @@ if ( this_road == 3 || this_road == 4 ) && new_y > 0
         status_wait                    = 0;    % not wait
     else
         status_wait = 1;    % wait
+        cars(i_car,9) = cars(i_car,9) + 1; % count numero of wait
     end
     if pos_next <= 1 || pos_next   >= hight_matrix
         hroad(1, old_x)            = color_road;

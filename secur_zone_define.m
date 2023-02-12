@@ -1,3 +1,12 @@
+%%------------------------------------------------------------
+% MATLAB Traffic Simulator
+% Coimbra University
+% Manuel Robalinho
+% Contact: manuel.robalinho@gmail.com
+% Year: 2022
+% References:
+%  https://www.mathworks.com/help/matlab/ref/uigridlayout.html
+%--------------------------------------------------------------
 %  define if is in security zone
 function [ wait_zone, car_in_sec_zone, turn_right_pos, turn_left_pos] = secur_zone_define(hroad, this_road, this_car_position, hroad_coordinates)
 
