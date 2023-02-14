@@ -32,7 +32,7 @@ This simulator save informations about run, in excel file MR_Traffic.xlsx
     
     l) Count the wait time for each road;
     
-    m) Sum wiat time for each weather conditions;
+    m) Sum wait time for each weather conditions;
 
 ![image](https://github.com/MRobalinho/Traffic_simulator/blob/main/Images/Screenshot_2.png)
 
