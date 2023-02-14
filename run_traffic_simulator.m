@@ -26,7 +26,7 @@ color_street_light   = 4;  % Street light color
 street_light_clock = 40;
 
 % Use play traffic sounds
-play_sounds = 1;
+play_sounds = 0; %( 0 - NO ; 1 - Yes)
 xfile_sound_name = 'traffic-vehicles.wav';
 
 %-------------------------------------------
@@ -197,7 +197,7 @@ for t = 0: run_time
      end
     end
 
-    %  Create random cars in some road each tim
+    %  Create random cars in some road each time
     xy = mod(t, create_random_cars); % rest of Division
     if xy == 0 && do_random_cars == 1 % do_random_cars (0=FALSE; 1 = TRUE)
         % Random new car
@@ -208,13 +208,15 @@ for t = 0: run_time
         % --
     end
 
-  if t == ( run_time - 1 )  % Last cicle, read time
+   % Last cicle, read time
+  if t == ( run_time - 1 )  
       % Final Current time
       [x1_clock_hour, x2_clock_min, x2_clock_sec, x1_time_in_seconds] = current_clock();
   end
   temp_clock = temp_clock + 1;
 
-  if temp_clock ~= ( speed_vehicle ) % Simulation vehicle speed
+  % Simulation vehicle speed
+  if temp_clock ~= ( speed_vehicle ) 
    if temp_clock == 1   
        xmsg = ['Wait clock :', num2str(temp_clock), '/', num2str(speed_vehicle)];
        disp(xmsg) ;

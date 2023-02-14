@@ -38,4 +38,5 @@ legend(ax, col1,col2) ;
 grid on;
 grid minor;
 
+%saveas('bar_graph_roads.png')
 end

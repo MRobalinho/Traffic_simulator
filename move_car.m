@@ -9,7 +9,9 @@
 %--------------------------------------------------------------
 % --Move car
 % ---------------------------------------------------------------
-function [ status_wait, hroad, cars ] = move_car(hight_matrix, hroad, hroad_coordinates, i_car, cars, color_road, color_vehicle, color_vehicle_turn_r, color_vehicle_turn_l )
+function [ status_wait, hroad, cars ] = move_car(hight_matrix, hroad,...
+    hroad_coordinates, i_car, cars, color_road, color_vehicle,...
+    color_vehicle_turn_r, color_vehicle_turn_l )
 
 % ---
 % Informations about cars - 6 informations
