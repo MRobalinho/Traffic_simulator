@@ -23,7 +23,8 @@ do_random_cars = 1;          % to create random cars ( 0 FALSE or 1 TRUE)
 
 % ----
 xls_filename = 'MR_Traffic.xlsx';
-xls_weather_table = "weather_table.xlsx";
+xls_weather_table = 'weather_table.xlsx';
+
 % ---- get weather ---
 iLocal = 'Coimbra';
 oLocal = iLocal;
@@ -45,7 +46,7 @@ iLocal = city;
 
 %  get weather data from API
 %[oLocal, oWeather, oTemperature, oPressure, oHumidity, oWind , oVisibility] = get_weather(iLocal);
-%% -------------------------------------------------
+% -------------------------------------------------
 %  Create GUI
 % Figure and Panel That Each Have a Grid - Grid 1
 fig = uifigure('Position',[100 100 900 500]); % top lef(x/y) / box length / box height
@@ -95,8 +96,8 @@ dlSpeed = uilabel(grid2);
 dlSpeed.HorizontalAlignment = 'right';
 dlSpeed.Text = 'Speed vehicles';
 ddSpeed = uidropdown(grid2);
-ddSpeed.Items = {'1           ', '0            ', '2            ',...
-    '3            ', '4             ', '5            ', 'Like weather'};
+ddSpeed.Items = {'Like weather', '0            ', '1           ','2            ',...
+    '3            ', '4             ', '5            '};
 
 %-------------------------------------------
 % process_cars  = 50;           % number cars to process
@@ -166,8 +167,9 @@ b1 = uibutton(grid2,'Text','Start',...
     'ButtonPushedFcn', @(b1,event)...
     transform_values(ax, ddHight_matrix.Value,...
     ddRun_time.Value, ddSpeed.Value, ddProcess_cars.Value, wait_meters,...
-    ddCreate_random_cars.Value, ddDo_random.Value, xls_filename,...
-    ddLocal_weather.Value, oWeather, oVisibility, ddTraffic_Light.Value) );
+    ddCreate_random_cars.Value, ddDo_random.Value,...
+    xls_filename, xls_weather_table,...
+    ddLocal_weather.Value, oVisibility, ddTraffic_Light.Value) );
 
 % Set to red the current button
 set(b1,'Backgroundcolor','green');
@@ -185,7 +187,7 @@ xLocal = ddLocal_weather.Value;
 if xLocal == "Porto   " || xLocal == "Coimbra " || xLocal == "Lisboa  "
 else
    xLocal = city; 
-end    
+end 
 
 % - label 4
 dlLbl4 = uilabel(grid2);
@@ -286,11 +288,12 @@ dlLbl19.FontColor = 'b';
 
 % -- GUI FINISH DESIGN ----------------------------
 
-%% -- Funtion to transform values and call execution
+% -- Funtion to transform values and call execution
 function transform_values(ax, xhight_matrix,...
     xrun_time, xspeed_vehicle, xprocess_cars, wait_meters,...
-    xcreate_random_cars, xdo_random_cars, xls_filename,...
-    xLocal_weather, oWeather, oVisibility, xtraffic_Light)
+    xcreate_random_cars, xdo_random_cars,...
+    xls_filename, xls_weather_table,...
+    xLocal_weather, oVisibility, xtraffic_Light)
 
 tic   % save initial time
 
@@ -308,7 +311,7 @@ tic   % save initial time
 % url = {https://jit.ndhu.edu.tw/article/view/2704}
 % Decrease speed according to atmospheric weather
 if xLocal_weather == 'ClearSky'
-    oVisibility =1000;
+    oVisibility =3000;
 elseif xLocal_weather == 'DenseFog'
     oVisibility =49;
 elseif xLocal_weather == 'ThickFog'
@@ -318,7 +321,7 @@ elseif xLocal_weather == 'Mild Fog'
 elseif xLocal_weather == 'LightFog'
     oVisibility =999;   
 elseif xLocal_weather == 'Thin Fog'
-    oVisibility =1999;     
+    oVisibility =1999; 
 end 
 
 % - Speed like Wheather
@@ -337,7 +340,7 @@ run_time           = str2double(xrun_time);
 speed_vehicle      = str2double(xspeed_vehicle);
 process_cars       = str2double(xprocess_cars);
 create_random_cars = str2double(xcreate_random_cars);
-traffic_Light      = str2double(xtraffic_Light);
+traffic_Light      = xtraffic_Light;
 if xdo_random_cars == "Yes"
     do_random_cars = 1;
 else
@@ -347,7 +350,7 @@ end
 % Call execution
 [count_cars_vector, count_time_vector] = run_traffic_simulator(hight_matrix,...
     run_time, speed_vehicle, process_cars, wait_meters,...
-    create_random_cars, do_random_cars, oWeather, oVisibility, traffic_Light);
+    create_random_cars, do_random_cars, xLocal_weather, oVisibility, traffic_Light);
 
 timeElapsed = toc; % final time
 
@@ -355,9 +358,14 @@ timeElapsed = toc; % final time
 plot_data(ax, count_cars_vector, count_time_vector, timeElapsed);
 
 % --- save data into excel files
-save_data_to_excel(xls_filename,xls_weather_table, traffic_Light,oWeather,...
+save_data_to_excel(xls_filename,xls_weather_table, traffic_Light,xLocal_weather,...
     timeElapsed, count_cars_vector, count_time_vector);
 
+% Plot Wait time
+plot_wait_time(xls_filename);
+
+% Plot weather Wait time
+plot_weather_wait_time(xls_filename);
 
 end % function
 %% -- STOP Function

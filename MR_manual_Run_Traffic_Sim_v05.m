@@ -16,7 +16,7 @@ run_time      = 200;         % run time seconds
 speed_vehicle = 2;           % vehicles speed  (99 is like Weather)
 process_cars  = 50;          % number cars to process
 wait_meters   = 4;           % Number meters for security zone ( 2 is the limit)
-create_random_cars = 10;     % count for random cars each tim
+create_random_cars = 10;     % count for random cars each time
 do_random_cars = 1;          % to create random cars ( 0 FALSE or 1 TRUE)
 traffic_Light = 0;           % With traffic light or not ( 0 FALSE or 1 TRUE)
 
@@ -58,5 +58,11 @@ plot_data(ax, count_cars_vector, count_time_vector, timeElapsed);  % Plot bar gr
 % --- save data into excel files
 save_data_to_excel(xls_filename,xls_weather_table, traffic_Light, oWeather,...
     timeElapsed, count_cars_vector, count_time_vector);
+
+% Plot Wait time
+plot_wait_time(xls_filename);
+
+% Plot weather Wait time
+plot_weather_wait_time(xls_filename);
 
 %  --- end program -------------------
