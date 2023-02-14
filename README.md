@@ -26,7 +26,13 @@ This simulator save informations about run, in excel file MR_Traffic.xlsx
 
     i) Can speed up random car creation;
     
-    j) Count the wait time for ech road;
+    j) Configure weather to influenc the model;
+    
+    k) Configure traffic with traffic light or not;
+    
+    l) Count the wait time for each road;
+    
+    m) Sum wiat time for each weather conditions;
 
 ![image](https://github.com/MRobalinho/Traffic_simulator/blob/main/Images/Screenshot_2.png)
 
