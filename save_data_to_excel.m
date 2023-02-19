@@ -15,9 +15,13 @@ function save_data_to_excel(xls_filename,xls_weather_table, traffic_Light,...
 % Create data to excel
 sheet = 1;
 % Read old data in excel file
-excel_old_data = xlsread(xls_filename ,sheet,'A1:L99'); % define number columns
+excel_old_data = xlsread(xls_filename ,sheet,'A1:M99'); % define number columns
+xn = size(excel_old_data,1);
+for i=1 : xn
+    excel_old_data(i,13) = 0;
+end
 
-excel_header = ["Light","Weather","Road 1", "Road 2","Road 3","Road 4","WaitRoad 1", "WaitRoad 2","WaitRoad 3","WaitRoad 4","Elapsed Time","DateTime"]; % Header
+excel_header = ["Light","Weather","Road1", "Road2","Road3","Road4","WaitRoad1", "WaitRoad2","WaitRoad3","WaitRoad4","Elapsed Time","DateTime","TotalWait"]; % Header
 % add old data - Concatenate tables
 excel_my_data = [excel_header; excel_old_data]; % concatenate  
 
@@ -46,7 +50,7 @@ end
 % create new data
 t = datetime('now');
 datenumber = datenum(t);
-excel_new_data = zeros(1, 12);
+excel_new_data = zeros(1, 13); % Excel with 13 columns
 
 %excel_new_data = count_cars_vector;
 excel_new_data(1,1) = traffic_Light; % Light (0-No/1-Yes)
@@ -62,6 +66,7 @@ excel_new_data(1,9) = count_time_vector(1,3); % WaitRoad 3
 excel_new_data(1,10) = count_time_vector(1,4); % WaitRoad 4
 excel_new_data(1,11) = timeElapsed;  % tome
 excel_new_data(1,12) = datenumber;   % today
+excel_new_data(1,13) = 0;   % for calcules
 
 % add new data - Concatenate tables
 excel_my_data = [excel_my_data; excel_new_data]; % concatenate 
