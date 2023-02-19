@@ -365,7 +365,10 @@ save_data_to_excel(xls_filename,xls_weather_table, traffic_Light,xLocal_weather,
 plot_wait_time(xls_filename);
 
 % Plot weather Wait time
-plot_weather_wait_time(xls_filename);
+plot_weather_wait_time(xls_filename, xls_weather_table);
+
+% Plot weather Wait time by weather
+plot_wait_time_by_weather(xls_filename, xls_weather_table)
 
 end % function
 %% -- STOP Function
